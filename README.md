@@ -54,8 +54,8 @@
 
 clone 作业 repo 到本地后，使用 yarn 安装依赖，并尝试运行开发服务器：
 ```bash
-git clone git@github.com:Btlmd/sast2022-django-training.git
-cd sast2022-django-training
+git clone git@github.com:ayf19/sast2022-react-training.git
+cd sast2022-react-training
 yarn
 yarn start
 ```
