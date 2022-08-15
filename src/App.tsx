@@ -2,6 +2,7 @@ import { Button, Table } from 'antd';
 import React, { useEffect, useState } from 'react';
 import type { ColumnsType } from 'antd/lib/table';
 import "antd/dist/antd.css"
+import "./index.css"
 
 import { ModalHistory } from './component/ModalHistory';
 import { getHistory, UserHistory} from "./api/history"
@@ -130,14 +131,16 @@ const App: React.FC = () => {
 
   return (
     <>
-      <h1>SAST Leaderboard</h1>
-      <ModalHistory name='History' history = {userHistory == undefined ? defaultHistory : userHistory} isModalVisible = {isModalVisible} handleOk = {handleOK} handleCancel = {handleCancel}/>
-      <ModalSubmit setLeaderBoard={setLeaderBoard}/>
-      <Table columns={columns} dataSource={leaderBoard?.map( item=> ({
-        ...item,
-        showModalHistory,
-        setLeaderBoard,
-      }))}/>
+      <header className='title'>SAST Leaderboard</header>
+      <div className='board'>
+        <ModalHistory name='History' history = {userHistory == undefined ? defaultHistory : userHistory} isModalVisible = {isModalVisible} handleOk = {handleOK} handleCancel = {handleCancel}/>
+        <ModalSubmit setLeaderBoard={setLeaderBoard}/>
+        <Table columns={columns} dataSource={leaderBoard?.map( item=> ({
+          ...item,
+          showModalHistory,
+          setLeaderBoard,
+        }))}/>
+      </div>
     </>
     
   )
